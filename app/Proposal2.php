@@ -15,10 +15,5 @@ class Proposal2 extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function proposal()
-    {
-        return $this->belongsTo('App\Proposal');
-    }
-
     
 }

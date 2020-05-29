@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Proposal2;
+
 
 class Proposal2Controller extends Controller
 {
@@ -57,7 +59,7 @@ class Proposal2Controller extends Controller
         $proposal2->date = $request->input('date');
         $proposal2->no_participant = $request->input('no_participant');
         $proposal2->cost = $request->input('cost');
-        // $proposal->user_id =auth()->user()->id;
+        $proposal2->user_id =auth()->user()->id;
         $proposal2->save();
         // return redirect('/proposalPage')->with('success', 'Proposal Created');
         return redirect('/home')->with('success', 'Proposal Created');
@@ -71,9 +73,7 @@ class Proposal2Controller extends Controller
      */
     public function show($id)
     {
-        $proposal2 = Proposal2::find($id);
-        $proposals2 = Proposal2::all();
-        return view('proposalPage.show',['proposal2'=>$proposal2,'proposals2'=>$proposals2, 'layout'=>'show']);
+        //
     }
 
     /**

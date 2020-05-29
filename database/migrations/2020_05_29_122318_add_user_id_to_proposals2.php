@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPropIdToProposals2 extends Migration
+class AddUserIdToProposals2 extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddPropIdToProposals2 extends Migration
     public function up()
     {
         Schema::table('proposals2', function (Blueprint $table) {
-            $table->integer('prob_id');
+            $table->integer('user_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddPropIdToProposals2 extends Migration
     public function down()
     {
         Schema::table('proposals2', function (Blueprint $table) {
-            $table->dropColumn('prob_id');
+            $table->dropColumn('user_id');
         });
     }
 }

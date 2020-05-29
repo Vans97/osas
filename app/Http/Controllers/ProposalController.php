@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Proposal;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProposalController extends Controller
@@ -79,10 +80,15 @@ class ProposalController extends Controller
      */
     public function show($id)
     {
-        $proposal = Proposal::find($id);
-        $proposals = Proposal::all();
-        return view('proposalPage.show',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'show']);
-       // return view('proposalPage.show',['proposal'=>$proposal, 'layout'=>'show']);
+        // $proposal = Proposal::find($id);
+        // $proposals = Proposal::all();
+        // return view('proposalPage.show',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'show']);
+       $test = DB::table('users')
+                ->join('proposals', 'proposals.user_id', '=', 'users.id')
+                ->join('proposals2','proposals2.user_id','=', 'proposals.user_id')
+                ->select('users.*','proposals.*','proposals2.*')
+                ->get();
+        return view('proposalPage.show',['test'=>$test, 'layout'=>'show']);
     }
 
     /**

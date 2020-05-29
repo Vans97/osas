@@ -14,8 +14,4 @@ class Proposal extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function proposals2()
-    {
-        return $this->hasMany('App\Proposal2');
-    }
 }
