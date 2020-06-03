@@ -86,8 +86,8 @@
                               <td>
                                   @if(!Auth::guest())
                                     @if(Auth::user()->id == $tests->user_id)
-                                  <a href="/proposalPage/{{$tests->id}}/edit" class= "btn btn-sm btn-warning">Edit</a>
-                                  {!!Form::open(['action' => ['ProposalController@destroy', $tests->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                  <a href="/proposal2Page/{{$tests->id}}/edit" class= "btn btn-sm btn-warning">Edit</a>
+                                  {!!Form::open(['action' => ['Proposal2Controller@destroy', $tests->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                       {{Form::hidden('_method', 'DELETE')}}
                                       {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                   {!!Form::close()!!}

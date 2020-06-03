@@ -1,6 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
+@foreach($proposals = $proposal)
 <div class="container">
     <div class="jumbotron" style="margin-top: 5%;">
      <h1>Edit Proposal</h1>
@@ -41,5 +42,6 @@
 
     </div>
 </div>
+@endforeach
 @endsection
 

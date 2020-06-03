@@ -65,6 +65,7 @@
             <input type="text" class="form-control" name="status" value="pending" readonly/><br/><br/>
 
             <input type="submit" name="submit" class="btn btn-primary" value="Add Event Data"/>
+        </form>
     </div>
 </div>
 

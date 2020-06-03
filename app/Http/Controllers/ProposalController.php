@@ -99,14 +99,17 @@ class ProposalController extends Controller
      */
     public function edit($id)
     {
-        $proposal = Proposal::find($id);
-        $proposals = Proposal::all();
+        // $proposal = Proposal::find($id);
+        // $proposals = Proposal::all();
+        $proposals = DB::table('proposals')
+                    ->select('proposals.*')
+                    ->get();
 
         //check correct user
-        if(auth()->user()->id !== $proposal->user_id){
-            return redirect('/proposalPage')->with('error','Unauthorized Page');
-        }
-        return view('proposalPage.edit',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'edit']);
+        // if(auth()->user()->id !== $proposal->user_id){
+        //     return redirect('/proposalPage')->with('error','Unauthorized Page');
+        // }
+        return view('proposalPage.edit',['proposals'=>$proposals, 'layout'=>'edit']);
     }
 
     /**
