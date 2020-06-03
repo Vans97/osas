@@ -68,6 +68,7 @@
             <input type="double" class="form-control" name="cost" placeholder="Enter the name"/><br/><br/>
 
             <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
+        </form>
     </div>
 </div>
 

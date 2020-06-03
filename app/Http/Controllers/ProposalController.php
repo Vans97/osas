@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Proposal;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class ProposalController extends Controller
 
     public function index()
     {
+        
         $proposals = Proposal::all();
         return view('proposalPage.index',['proposals'=>$proposals,'layout'=>'index']);
 
@@ -99,17 +101,18 @@ class ProposalController extends Controller
      */
     public function edit($id)
     {
+        
         // $proposal = Proposal::find($id);
         // $proposals = Proposal::all();
-        $proposals = DB::table('proposals')
+        $test = DB::table('proposals')
                     ->select('proposals.*')
                     ->get();
 
         //check correct user
-        // if(auth()->user()->id !== $proposal->user_id){
+        // if(auth()->user()->id !== $proposals->user_id){
         //     return redirect('/proposalPage')->with('error','Unauthorized Page');
         // }
-        return view('proposalPage.edit',['proposals'=>$proposals, 'layout'=>'edit']);
+        return view('proposalPage.edit')->with ('test',$test);
     }
 
     /**
