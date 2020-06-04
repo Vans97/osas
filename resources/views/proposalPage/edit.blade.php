@@ -1,7 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
-@foreach($test = $tests)
+{{-- @foreach($test = $tests) --}}
 <div class="container">
     <div class="jumbotron" style="margin-top: 5%;">
      <h1>Edit Proposal</h1>
@@ -42,6 +42,6 @@
 
     </div>
 </div>
-@endforeach
+{{-- @endforeach --}}
 @endsection
 

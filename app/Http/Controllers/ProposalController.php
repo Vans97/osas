@@ -82,15 +82,21 @@ class ProposalController extends Controller
      */
     public function show($id)
     {
+        
         // $proposal = Proposal::find($id);
         // $proposals = Proposal::all();
         // return view('proposalPage.show',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'show']);
-       $test = DB::table('users')
-                ->join('proposals', 'proposals.user_id', '=', 'users.id')
-                ->join('proposals2','proposals2.user_id','=', 'proposals.user_id')
-                ->select('users.*','proposals.*','proposals2.*')
-                ->get();
-        return view('proposalPage.show',['test'=>$test, 'layout'=>'show']);
+    //    $test = DB::table('users')
+    //             ->join('proposals', 'proposals.user_id', '=', 'users.id')
+    //             ->join('proposals2','proposals2.user_id','=', 'proposals.user_id')
+    //             ->select('users.*','proposals.*','proposals2.*')
+    //             ->get();
+        // $proposal1 = DB::select('select * from proposals where id = ?', [$id]);
+        // $proposal2 = DB::select('select * from proposals2 where id = proposals2.id');
+        $proposal1 = DB::table('proposals')->get();
+        $proposal2 = DB::table('proposals2')->get();
+
+        return view('proposalPage.show',['proposal1'=>$proposal1, 'proposal2'=>$proposal2]);
     }
 
     /**
@@ -102,17 +108,17 @@ class ProposalController extends Controller
     public function edit($id)
     {
         
-        // $proposal = Proposal::find($id);
-        // $proposals = Proposal::all();
-        $test = DB::table('proposals')
-                    ->select('proposals.*')
-                    ->get();
+        $tests = Proposal::find($id);
+        // $tests = Proposal::all();
+        // $test = DB::table('proposals')
+                    
+        //             ->get();
 
-        //check correct user
-        // if(auth()->user()->id !== $proposals->user_id){
-        //     return redirect('/proposalPage')->with('error','Unauthorized Page');
-        // }
-        return view('proposalPage.edit')->with ('test',$test);
+       //check correct user
+         if(auth()->user()->id !== $tests->user_id){
+            return redirect('/proposalPage')->with('error','Unauthorized Page');
+        }
+        return view('proposalPage.edit')->with ('tests',$tests);
     }
 
     /**
