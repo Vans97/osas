@@ -24,7 +24,7 @@ Route::get('/profile', 'PagesController@profile');
 Route::get('/apply', 'PagesController@apply');
 
 Route::resource('proposalPage', 'ProposalController');
-Route::resource('Proposal2Page','Proposal2Controller');
+Route::resource('proposal2Page','Proposal2Controller');
 Route::resource('calendar', 'EventController');
 // Route::post('calendar/editevent', 'EventController@show');
 
@@ -44,6 +44,9 @@ Route::resource('calendar', 'EventController');
   // });
 
   Route::resource('adminUpdate','AdminController');
+  Route::get('adminUpdate/{id}/edit2','AdminController@edit2');
+  Route::match(['put','patch'],'adminUpdate/{id}/update2','AdminController@update2');
+
 
 
   

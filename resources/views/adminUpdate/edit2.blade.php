@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app')
 
 @section('content')
 {{-- @foreach($test = $tests) --}}
@@ -6,7 +6,7 @@
     <div class="jumbotron" style="margin-top: 5%;">
      <h1>Edit Proposal</h1>
       
-        {!! Form::open(['action' => ['Proposal2Controller@update',$test->id], 'method'=>'POST']) !!}
+        {!! Form::open(['action' => ['AdminController@update2',$test->id], 'method'=>'POST']) !!}
             <div class="form-group">
                 {{Form::label('date_approved','Date Approved')}}
                 {{Form::text('date_approved',$test->date_approved,['class'=>'form-control','placeholder'=>'Date Approved'])}}

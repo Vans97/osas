@@ -3,13 +3,13 @@
 @section('content')
 
     <a href="/proposalPage" class="btn btn-default">Back</a>
-    <h1>{{$proposal->title}}<h1>
+    @foreach($proposal1 as $proposals1)
+    <h1>{{$proposals1->title}}<h1>
 
-        @if($layout == 'show')
-        <div class="container-fluid">
-                <div class = "row">
-                <section class="col">
-                    <table class="table">
+        
+       
+        
+                    <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
                             
@@ -18,6 +18,56 @@
                             <th scope="col">Remarks</th>
                             <th scope="col">Name</th>
                             <th scope="col">Status</th>
+                            
+                            <th scope="col">Operation</th>
+
+                          </tr>
+                        </thead>
+                      
+                        <tbody>
+                         
+                          <tr>
+                              <td>{{$proposals1->actPlace}}</td>
+                              <td>{{$proposals1->approvel}}</td>
+                              <td>{{$proposals1->remark}}</td>
+                              <td>{{$proposals1->name}}</td>
+                              <td>{{$proposals1->status}}</td>
+                              
+                              
+                          
+                              <td>
+                                  {{-- @if(!Auth::guest())
+                                    @if(Auth::user()->id == $proposals1->user_id) --}}
+                                  <a href="/adminUpdate/{{$proposals1->id}}/edit" class= "btn btn-sm btn-warning">Edit</a>
+                                  {!!Form::open(['action' => ['ProposalController@destroy', $proposals1->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                      {{Form::hidden('_method', 'DELETE')}}
+                                      {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                  {!!Form::close()!!}
+                                  {{-- @endif
+                                  @endif --}}
+                              </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+
+@endforeach
+@foreach($proposal2 as $proposals2)
+
+
+                    
+
+                      <table class="table table-bordered">
+                        <thead class="thead-dark">
+                          <tr>
+                            
+                            <th scope="col">Date Approved</th>
+                            <th scope="col">Activity Level</th>
+                            <th scope="col">Activity Category</th>
+                            <th scope="col">organize</th>
+                            <th scope="col">date</th>
+                            <th scope="col">Number of Participant</th>
+                            <th scope="col">Cost</th>
                             <th scope="col">Operation</th>
                           </tr>
                         </thead>
@@ -25,37 +75,33 @@
                         <tbody>
                          
                           <tr>
-                              <td>{{$proposal->actPlace}}</td>
-                              <td>{{$proposal->approvel}}</td>
-                              <td>{{$proposal->remark}}</td>
-                              <td>{{$proposal->name}}</td>
-                              <td>{{$proposal->status}}</td>
+                              <td>{{$proposals2->date_approved}}</td>
+                              <td>{{$proposals2->act_level}}</td>
+                              <td>{{$proposals2->act_category}}</td>
+                              <td>{{$proposals2->organize}}</td>
+                              <td>{{$proposals2->date}}</td>
+                              <td>{{$proposals2->no_participant}}</td>
+                              <td>{{$proposals2->cost}}</td>
                           
                               <td>
                                   {{-- @if(!Auth::guest())
-                                    @if(Auth::user()->id == $proposal->user_id) --}}
-                                  <a href="/adminUpdate/{{$proposal->id}}/edit" class= "btn btn-sm btn-warning">Edit</a>
-                                  {{-- {!!Form::open(['action' => ['ProposalController@destroy', $proposal->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                    @if(Auth::user()->id == $proposals2->user_id) --}}
+                                  <a href="/adminUpdate/{{$proposals2->id}}/edit2" class= "btn btn-sm btn-warning">Edit</a>
+                                  {!!Form::open(['action' => ['Proposal2Controller@destroy', $proposals2->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                       {{Form::hidden('_method', 'DELETE')}}
                                       {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                   {!!Form::close()!!}
-                                  @endif
+                                  {{-- @endif
                                   @endif --}}
                               </td>
                           </tr>
                           
                         </tbody>
-                      </table>
-                      
-                      
-                      
-                </section>
-                <section class="col"></section>
-                </div>
-            </div>
-            @else
-            <p>takde</p>
-            @endif
+                      </table> 
+                       
+        
+           
+        @endforeach
         
            
 

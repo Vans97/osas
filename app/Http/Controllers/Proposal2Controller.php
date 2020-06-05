@@ -84,17 +84,17 @@ class Proposal2Controller extends Controller
      */
     public function edit($id)
     {
-    //     $test = Proposal::find($id);
+        $test = Proposal2::find($id);
     //     $test = Proposal::all();
     //     // $test = DB::table('proposals')
                     
     //     //             ->get();
 
     //    //check correct user
-    //      if(auth()->user()->id !== $test->user_id){
-    //         return redirect('/proposalPage')->with('error','Unauthorized Page');
-    //     }
-    //     return view('proposal2Page.edit')->with ('test',$test);
+         if(auth()->user()->id !== $test->user_id){
+            return redirect('/proposalPage')->with('error','Unauthorized Page');
+        }
+        return view('proposal2Page.edit')->with ('test',$test);
     }
 
     /**
@@ -106,7 +106,30 @@ class Proposal2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+
+            'date_approved'=>'required',
+            'act_level'=>'required',
+            'act_category'=>'required',
+            'organize'=>'required',
+            'date'=>'required',
+            'no_participant'=>'required',
+            'cost'=>'required'
+
+
+        ]);
+
+        $proposal2 = Proposal2::find($id);
+        $proposal2->date_approved = $request->input('date_approved');
+        $proposal2->act_level = $request->input('act_level');
+        $proposal2->act_category = $request->input('act_category');
+        $proposal2->organize = $request->input('organize');
+        $proposal2->date = $request->input('date');
+        $proposal2->no_participant = $request->input('no_participant');
+        $proposal2->cost = $request->input('cost');
+        $proposal2->save();
+        // return redirect('/proposalPage')->with('success', 'Proposal Created');
+        return redirect('/home')->with('success', 'Proposal Updated');
     }
 
     /**
@@ -117,6 +140,8 @@ class Proposal2Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $proposal = Proposal2::find($id);
+        $proposal->delete();
+        return redirect('/home')->with('success', 'Proposal Deleted');
     }
 }
