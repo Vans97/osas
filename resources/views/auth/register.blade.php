@@ -26,6 +26,48 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="studID" class="col-md-4 col-form-label text-md-right">{{ __('Student ID') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="studID" type="text" class="form-control @error('studID') is-invalid @enderror" name="studID" value="{{ old('studID') }}" required autocomplete="studID" autofocus>
+
+                                @error('studID')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="program" class="col-md-4 col-form-label text-md-right">{{ __('Programme') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="program" type="text" class="form-control @error('program') is-invalid @enderror" name="program" value="{{ old('program') }}" required autocomplete="program" autofocus>
+
+                                @error('program')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Mobile No') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
+
+                                @error('mobile')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">

@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/profile', 'PagesController@profile');
+Route::get('page/{id}/editProfile', 'PagesController@edit');
+Route::match(['put','patch'],'page/{id}/update', 'PagesController@update');
 Route::get('/apply', 'PagesController@apply');
 
 Route::resource('proposalPage', 'ProposalController');

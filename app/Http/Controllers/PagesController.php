@@ -21,14 +21,32 @@ class PagesController extends Controller
 
     public function profile()
     {
-        // $profile = Profile::find($id);
-        // $profiles = Profile::all();
-        // $profiles = User::all();
-        // return view('page.profile',['profiles'=>$profiles,'layout'=>'index']);
+       
         $user=\Auth::user();
         return view ('page.profile', ['user'=>$user]);
     }
 
+    public function edit($id)
+    {
+        $profile = User::find($id);
+        return view ('page.editProfile')->with('profile',$profile);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request,[
+            'mobile'=>'required',
+            'email'=>'required'
+
+
+        ]);
+
+        $edit = User::find($id);
+        $edit->mobile = $request->input('mobile');
+        $edit->email = $request->input('email');
+        $edit->save();
+        return redirect('/profile')->with('success', 'Profile Updated');
+    }
     public function apply()
     {
         return view('page.apply');
