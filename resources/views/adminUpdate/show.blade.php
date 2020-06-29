@@ -3,8 +3,10 @@
 @section('content')
 
     <a href="/proposalPage" class="btn btn-default">Back</a>
+    <div class="container">
+      <div class="show" style="margin-top: 5%;">
     @foreach($proposal1 as $proposals1)
-    <h1>{{$proposals1->title}}<h1>
+    <h1>{{$proposals1->title}}</h1>
 
         
        
@@ -52,6 +54,10 @@
                       </table>
 
 @endforeach
+      </div>
+    </div>
+    <div class="container">
+      <div class="show" style="margin-top: 5%;">
 @foreach($proposal2 as $proposals2)
 
 
@@ -104,6 +110,7 @@
         @endforeach
         
            
-
+      </div>
+    </div>
 
 @endsection

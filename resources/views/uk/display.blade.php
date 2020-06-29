@@ -25,6 +25,7 @@
                         <th>End Date</th>
                         <th>Update</th>
                         <th>Delete</th>
+                        <th>Send message</th>
                     </tr>
                 </thead>
                 @foreach($events as $event)
@@ -41,26 +42,28 @@
                             {{-- <a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success"> --}}
                             {{-- <i class="glyphicon glyphicon-edit"></i>  --}}
                             {{-- Edit </a> --}}
-                            @if(!Auth::guest())
-                             @if(Auth::user()->id == $event->user_id)
-                             <a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success">Edit</a>
-                            @endif
-                            @endif
+                          
+                             <a href="{{action('UKController@edit',$event['id'])}}" class="btn btn-success">Edit</a>
+                          
 
                         </th>
 
                         <th>
-                            @if(!Auth::guest())
-                            @if(Auth::user()->id == $event->user_id)
-                            <form method="POST" action="{{action('EventController@destroy', $event['id'])}}">
+                           
+                            <form method="POST" action="{{action('UKController@destroy', $event['id'])}}">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="DELETE"/>
                                 <button type="submit" class="btn btn-danger">
                                     <i class="glyphicon glyphicon-delete">Delete</i>
                                 </button>
                             </form>
-                            @endif
-                            @endif
+                          
+                        </th>
+
+                        <th>
+                           
+                             <a href="{{action('MailSend@mailsend')}}" class="btn btn-success">Send Email</a>
+                          
                         </th>
                     </tr>
                 </tbody>

@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Post<h1> &nbsp;
+<h1><center>All Proposals</center><h1> 
+<div class="container">
+    <div class="row justify-content-center" style="margin-top: 5%">
+        <div class="col-md-8">
+            <div class="card">
+                
     @if(count($proposals)>0)
         @foreach($proposals as $proposal)
             <div class="well">
@@ -22,4 +27,9 @@
     @else
         <p>No Proposal Found</p>
     @endif
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection

@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table ='events';
-    protected $fillable = ['title','color','start_date','end_date'];
+    public $primaryKey='id';
+    public $timestamps = true;
+    protected $fillable = ['title','color','start_date','end_date','driver'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

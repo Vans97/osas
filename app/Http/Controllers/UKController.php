@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Event;
 use App\User;
-use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
-
-class EventController extends Controller
+class UKController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:UK');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +61,7 @@ class EventController extends Controller
         ->setCallbacks([
             'eventClick' => 'function(event) { alert(event.title)}',
         ]);
-        return view('calendar.eventpage',compact('events','calendar'));
+        return view('UK',compact('events','calendar'));
     }
 
     /**
@@ -68,9 +71,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $events = Event::all();
-        return view('calendar.addevent',['events'=>$events,'layout'=>'create']);
-        // return view('calendar.addevent')->with('b',$events);
+        //
     }
 
     /**
@@ -79,34 +80,9 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    //  public function display()
-    //  {
-        
-    //  }
-
-     
     public function store(Request $request)
     {
-        $this ->validate($request,[
-            'title'=>'required',
-            'color'=>'required',
-            'start_date'=>'required',
-            'end_date'=>'required',
-            'driver'=>'required',
-        ]);
-
-        $events = new Event;
-        $events->title = $request->input('title');
-        $events->color = $request->input('color');
-        $events->start_date = $request->input('start_date');
-        $events->end_date = $request->input('end_date');
-        $events->driver = $request->input('driver');
-
-        $events->user_id =auth()->user()->id;
-        $events->save();
-
-        return redirect('calendar')->with('success', 'Events Added');
+        //
     }
 
     /**
@@ -115,10 +91,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
         $events = Event::all();
-        return view('calendar.display')->with('events', $events);
+        return view('uk.display')->with('events', $events);
     }
 
     /**
@@ -130,10 +106,8 @@ class EventController extends Controller
     public function edit($id)
     {
         $events = Event::find($id);
-        if(auth()->user()->id !== $events->user_id){
-            return redirect('calendar')->with('error','Unauthorized Page');
-        }
-        return view('calendar.edit', compact('events','id'));
+      
+        return view('uk.edit', compact('events','id'));
     }
 
     /**
@@ -151,7 +125,6 @@ class EventController extends Controller
             'start_date'=>'required',
             'end_date'=>'required',
             'driver'=>'required',
-
         ]);
 
         $events = Event::find($id);
@@ -161,10 +134,9 @@ class EventController extends Controller
         $events->end_date = $request->input('end_date');
         $events->driver = $request->input('driver');
 
-
         $events->save();
 
-        return redirect('calendar')->with('success', 'Event Updated');
+        return redirect('UK')->with('success', 'The date has been approved!');
     }
 
     /**
@@ -178,6 +150,18 @@ class EventController extends Controller
         $events= Event::find($id);
         $events->delete();
 
-        return redirect('calendar')->with('success','Data Deleted');
+        return redirect('UK')->with('success','Data Deleted');
     }
 }
+
+
+
+
+
+
+
+
+
+
+    
+

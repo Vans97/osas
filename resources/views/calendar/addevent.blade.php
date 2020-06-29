@@ -28,10 +28,13 @@
                         {{-- <input type="hidden" name="_method" value="PUT">  --}}
 
                         <label for="">Enter Name of Event</label>
-                        <input type="text" class="form-control" name="title"  placeholder="Enter the name"/><br/><br/>
+                        <input type="text" class="form-control" name="title"  placeholder="Enter the name"/><br/>
 
-                        <label for="">Enter Color</label>
-                        <input type="color" class="form-control" name="color" placeholder="Enter the color"/><br/><br/>
+                        <label hidden>Enter Color</label>
+                        <input type="color" hidden class="form-control" name="color" value="#FF0000" readonly/><br/>
+
+                        <label for="">Enter Name of Driver</label>
+                        <input type="text" class="form-control" name="driver"  value="Not Assign" readonly/><br/><br/>
 
                         <label for="">Enter Start Date of Event</label>
                         <input type="datetime-local" class="form-control" name="start_date" placeholder="Enter the start date"/><br/><br/>

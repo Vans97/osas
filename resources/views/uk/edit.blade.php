@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <form action="{{action('EventController@update',$id)}}" method="POST">
+    <form action="{{action('UKController@update',$id)}}" method="POST">
         {{ csrf_field() }}
         <div class="container">
             <div class="jumbotron" style="margin-top: 5%;">
@@ -22,31 +22,36 @@
 
             <div class="form-group">
                 <label>Name of The Event</label>
-                <input type="text" class="form-control" name="title" placeholder="Enter Event" value="{{$events->title}}">
+                <input type="text" class="form-control" name="title" value="{{$events->title}}" readonly>
             </div>
 
             <div class="form-group">
                 <label hidden>Event Color</label>
-                <input type="color" hidden class="form-control" name="color" value="#FF0000" readonly/>
+                <input  type="color" hidden class="form-control" name="color" value="#008000" readonly>
             </div>
 
             <div class="form-group">
                 <label>Name of The Driver</label>
-                <input type="text" class="form-control" name="driver"  value="{{$events->driver}}" readonly>
+                {{-- <input type="text" class="form-control" name="driver" value="{{$events->driver}}" > --}}
+                <select name="driver" id="driver" class="form-control">
+                    <option value="Ali">Ali Kasim</option>
+                    <option value="Abu">Abu</option>
+                    <option value="Abuja">Abuja</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label>Start Date of Event</label>
-                <input type="datetime-local" class="form-control" name="start_date" placeholder="Enter Start Date" value="{{$events->start_date}}">
+                <input  class="form-control" name="start_date"  value="{{$events->start_date}}" readonly>
              </div>
 
             <div class="form-group">
                 <label>End Date of Event</label>
-                <input type="datetime-local" class="form-control" name="end_date" placeholder="Enter End Date" value="{{$events->end_date}}">
+                <input  class="form-control" name="end_date"  value="{{$events->end_date}}" readonly>
             </div>
 
             {{ method_field('PUT')}}
-            <button type="submit" name="submit" class="btn btn-success">Update Event</button>
+            <button type="submit" name="submit" class="btn btn-success">Approved</button>
 
         </div>
     </div>

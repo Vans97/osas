@@ -3,12 +3,14 @@
 @section('content')
 
    <a href="/home" class="btn btn-secondary btn-sm">Back</a>
+  <div class="container">
+    <div class="show" style="margin-top: 5%;">
    @foreach($proposal1 as $proposals1)
-    <h1>{{$proposals1->title}}<h1>
+    <h1>{{$proposals1->title}}</h1>
 
         
        
-        
+                    <small> PENGESAHAN PENGGUNAAN TEMPAT DAN KENDERAAN</small>
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
@@ -50,13 +52,18 @@
                           
                         </tbody>
                       </table>
+                      @endforeach
+    </div>
+  </div>
 
-@endforeach
+<div class="container">
+<div class="profile" style="margin-top: 5%;">
+
 @foreach($proposal2 as $proposals2)
 
 
                     
-
+                      <small>RINGKASAN PERMOHONAN AKTIVITI PELAJAR</small>
                       <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
@@ -102,5 +109,7 @@
         
            
         @endforeach
+</div>
+</div>
 
 @endsection

@@ -57,6 +57,17 @@ return [
             'provider' => 'admins',
             'hash' => false,
         ],
+
+        'UK'=>[
+            'driver' => 'session',
+            'provider' => 'uks',
+        ],
+
+        'UK-api' => [
+            'driver' => 'token',
+            'provider' => 'uks',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -85,6 +96,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
+        ],
+
+        'uks' => [
+            'driver' => 'eloquent',
+            'model' => App\UK::class,
         ],
 
         // 'users' => [
@@ -117,6 +133,12 @@ return [
 
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'uks' => [
+            'provider' => 'uks',
             'table' => 'password_resets',
             'expire' => 60,
         ],

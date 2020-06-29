@@ -45,6 +45,14 @@ Route::resource('calendar', 'EventController');
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
   // });
 
+  Route::get('send-mail','MailSend@mailsend');
+
+  Route::get('UK/login', 'Auth\UKLoginController@showLoginForm')->name('UK.login');
+  Route::post('/UK/login', 'Auth\UKLoginController@login')->name('UK.login.submit');
+  Route::get('/UK', 'UKController@index')->name('UK.dashboard');
+  Route::resource('uk','UKController');
+
+
   Route::resource('adminUpdate','AdminController');
   Route::get('adminUpdate/{id}/edit2','AdminController@edit2');
   Route::match(['put','patch'],'adminUpdate/{id}/update2','AdminController@update2');

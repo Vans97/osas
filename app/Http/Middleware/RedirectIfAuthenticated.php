@@ -24,6 +24,12 @@ class RedirectIfAuthenticated
           }
           break;
 
+          case 'UK':
+            if (Auth::guard($guard)->check()) {
+              return redirect()->route('UK.dashboard');
+            }
+            break;
+
         default:
           if (Auth::guard($guard)->check()) {
               return redirect('/home');

@@ -72,7 +72,7 @@
                     <a class="nav-link" href="/proposalPage">List of Proposal</a>
                   </li>
                   <li class="nav-item"> --}}
-                    <a class="nav-link" href="/proposalPage/create">Apply Proposal</a>
+                    <a class="nav-link" href="/proposalPage/create">Create Proposal</a>
                   </li>
                 </ul>
                 

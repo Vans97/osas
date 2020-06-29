@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function proposals2(){
         return $this->hasMany('App\Proposal2');
     }
+
+    public function event(){
+        return $this->hasMany('App\Event');
+    }
 }

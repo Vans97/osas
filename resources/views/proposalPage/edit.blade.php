@@ -1,7 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
-{{-- @foreach($test = $tests) --}}
+
 <div class="container">
     <div class="jumbotron" style="margin-top: 5%;">
      <h1>Edit Proposal</h1>
@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 {{Form::label('status','Status')}}
-                {{Form::text('status',$tests->status,['class'=>'form-control','placeholder'=>'Status'])}}
+                {{Form::text('status',$tests->status,['class'=>'form-control','placeholder'=>'Status', 'readonly'])}}
             </div>
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
@@ -42,6 +42,6 @@
 
     </div>
 </div>
-{{-- @endforeach --}}
+
 @endsection
 
