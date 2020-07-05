@@ -34,7 +34,7 @@
             
         </div>
         <div class="panel-body" style="margin-top: 2%">
-            <a href="/proposalPage/create" class="btn btn-primary">Apply Proposal</a>
+            <a href="/proposalPage/create" class="btn btn-primary">Create Proposal</a>
           </div>
     </div>
 

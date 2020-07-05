@@ -16,7 +16,7 @@ class CreateProposals2Table extends Migration
         Schema::create('proposals2', function (Blueprint $table) {
            
             $table->bigIncrements('id');
-            $table->string('date_approved');
+            $table->date('date_approved');
             $table->string('act_level');
             $table->string('act_category');
             $table->string('organize');

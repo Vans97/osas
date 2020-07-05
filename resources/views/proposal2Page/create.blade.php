@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="jumbotron" style="margin-top: 5%;">
-    <h1>Create Proposal 2</h1>
+    <h1>SUMMARY OF STUDENT ACTIVITY APPLICATION</h1>
       
         {{-- {!! Form::open(['action' => 'ProposalController@store', 'method'=>'POST']) !!}
             <div class="form-group">
@@ -47,7 +47,7 @@
             {{-- <input type="hidden" name="_method" value="PUT">  --}}
 
             <label for="">Date Approved</label>
-            <input type="text" class="form-control" name="date_approved"  placeholder="Enter the title"/><br/>
+            <input type="date" class="form-control" name="date_approved"  placeholder="Enter the title"/><br/>
 
             <label for="">Activity Level</label>
             {{-- <input type="text" class="form-control" name="act_level" placeholder="Enter activity place"/><br/><br/> --}}
@@ -60,7 +60,7 @@
                 <option value="Club">Club</option>
             </select><br/>
 
-            <label for="">Activity category</label>
+            <label for="">Activity Category</label>
             {{-- <input type="text" class="form-control" name="act_category" placeholder="Enter the approval"/><br/><br/> --}}
 
             <select name="act_category" id="act_category" class="form-control">
@@ -73,7 +73,7 @@
                 <option value="Entrepreneurship">Entrepreneurship</option>
             </select><br/>
 
-            <label for="">Organize</label>
+            <label for="">Organize By</label>
             <input type="text" class="form-control" name="organize" placeholder="Enter the remarks"/><br/>
 
             <label for="">Date</label>

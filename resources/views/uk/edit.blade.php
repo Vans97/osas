@@ -34,9 +34,9 @@
                 <label>Name of The Driver</label>
                 {{-- <input type="text" class="form-control" name="driver" value="{{$events->driver}}" > --}}
                 <select name="driver" id="driver" class="form-control">
-                    <option value="Ali">Ali Kasim</option>
-                    <option value="Abu">Abu</option>
-                    <option value="Abuja">Abuja</option>
+                    <option value="Ali">Ali Jamal</option>
+                    <option value="Syahid">Syahid Farhan</option>
+                    <option value="Zaki">Zaki Sahak</option>
                 </select>
             </div>
 

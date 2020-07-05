@@ -4,7 +4,8 @@
 
 <div class="container">
     <div class="jumbotron" style="margin-top: 5%;">
-    <h1>BORANG PENGESAHAN PENGGUNAAN TEMPAT DAN KENDERAAN</h1>
+    {{-- <h1>BORANG PENGESAHAN PENGGUNAAN TEMPAT DAN KENDERAAN</h1> --}}
+    <h1>FORM OF VEHICLE AND PLACE USE</h1>
       
         {{-- {!! Form::open(['action' => 'ProposalController@store', 'method'=>'POST']) !!}
             <div class="form-group">

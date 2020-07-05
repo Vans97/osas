@@ -17,10 +17,10 @@ class MailSend extends Controller
             'body' => 'Your application has been approved. You are ready to go!'
         ];
 
-        dd($email= DB::table('users')
+        $email= DB::table('users')
                 ->join('events', 'events.user_id','=', 'users.id')
                 ->select('users.email','events.id')
-                ->get());
+                ->get();
 
         \Mail::to($email)->send(new SendMail($details));
         return view('emails.thanks');

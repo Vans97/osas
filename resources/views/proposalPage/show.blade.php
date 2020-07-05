@@ -10,7 +10,7 @@
 
         
        
-                    <small> PENGESAHAN PENGGUNAAN TEMPAT DAN KENDERAAN</small>
+                    <small> FORM OF VEHICLE AND PLACE USE</small>
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
@@ -63,7 +63,7 @@
 
 
                     
-                      <small>RINGKASAN PERMOHONAN AKTIVITI PELAJAR</small>
+                      <small>SUMMARY OF STUDENT ACTIVITY APPLICATION</small>
                       <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
