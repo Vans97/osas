@@ -28,48 +28,48 @@
                         <th>Send message</th>
                     </tr>
                 </thead>
-                @foreach($events as $event)
+                @foreach ($events as $event)
                 <tbody>
                     <tr>
                         {{-- <td>{{ $event->id}}</td> --}}
-                        <td>{{ $event->title}}</td>
-                        <td>{{ $event->color}}</td>
-                        <td>{{ $event->driver}}</td>
-                        <td>{{ $event->start_date}}</td>
-                        <td>{{ $event->end_date}}</td>
+                        <td>{{ $event->title }}</td>
+                        <td>{{ $event->color }}</td>
+                        <td>{{ $event->driver }}</td>
+                        <td>{{ $event->start_date }}</td>
+                        <td>{{ $event->end_date }}</td>
 
                         <th>
                             {{-- <a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success"> --}}
                             {{-- <i class="glyphicon glyphicon-edit"></i>  --}}
                             {{-- Edit </a> --}}
-                          
-                             <a href="{{action('UKController@edit',$event['id'])}}" class="btn btn-success">Edit</a>
-                          
+
+                            <a href="{{action('UKController@edit',$event->id)}}" class="btn btn-success">Edit</a>
+
 
                         </th>
 
                         <th>
-                           
-                            <form method="POST" action="{{action('UKController@destroy', $event['id'])}}">
+
+                            <form method="POST" action="{{action('UKController@destroy', $event->id)}}">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="DELETE"/>
                                 <button type="submit" class="btn btn-danger">
                                     <i class="glyphicon glyphicon-delete">Delete</i>
                                 </button>
                             </form>
-                          
+
                         </th>
 
                         <th>
-                           
-                             <a href="{{action('MailSend@mailsend')}}" class="btn btn-success">Send Email</a>
-                          
+
+                            {{-- <a href="{{ action('MailSend@mailsend', [$event->email]) }}" class="btn btn-success">Send Email</a> --}}
+                            <a href="/send-mail/{{ $event->email }}/{{ $event->driver }}/{{ $event->start_date }}" class="btn btn-success">Send Email</a>
+
                         </th>
                     </tr>
                 </tbody>
                 @endforeach
             </table>
-        
 
 
         </div>

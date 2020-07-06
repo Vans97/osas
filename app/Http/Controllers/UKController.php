@@ -22,12 +22,12 @@ class UKController extends Controller
     {
         $events = Event::all();
         $event=[];
-        
+
         foreach($events as $row){
             $enddate=$row->end_date."24:00:00";
             $event[]=\Calendar::event(
                 $row->title,
-                
+
                 //tanpa time
                 //true,
                 //ada time
@@ -37,16 +37,16 @@ class UKController extends Controller
                 $row->id,
                 [
                     'color'=>$row->color,
-                    
-                    
+
+
                     // 'url' => 'http://full-calendar.io',
                     //any other full-calendar supported parameters
-                    
+
                 ]
                 );
 
                 // $calendar = \Calendar::addEvents($event)
-                
+
 
         }
         $calendar =\Calendar::addEvents($event)
@@ -93,7 +93,10 @@ class UKController extends Controller
      */
     public function show($id)
     {
-        $events = Event::all();
+        $events = DB::table('events AS e')->select(DB::raw('e.title, e.color, e.driver, e.start_date, e.end_date, u.id, u.email'))
+            ->leftJoin('users AS u', 'e.user_id', '=', 'u.id')
+            ->get();
+
         return view('uk.display')->with('events', $events);
     }
 
@@ -106,7 +109,7 @@ class UKController extends Controller
     public function edit($id)
     {
         $events = Event::find($id);
-      
+
         return view('uk.edit', compact('events','id'));
     }
 
@@ -163,5 +166,5 @@ class UKController extends Controller
 
 
 
-    
+
 

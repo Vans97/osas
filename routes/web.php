@@ -38,14 +38,14 @@ Route::resource('calendar', 'EventController');
 //Route::post('/update/{id}', 'ProposalController@update');
 
 
-  // Route::prefix('admin')->group(function() 
+  // Route::prefix('admin')->group(function()
   // {
     Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
   // });
 
-  Route::get('send-mail','MailSend@mailsend');
+  Route::get('send-mail/{email}/{drive}/{startDate}','MailSend@mailsend');
 
   Route::get('UK/login', 'Auth\UKLoginController@showLoginForm')->name('UK.login');
   Route::post('/UK/login', 'Auth\UKLoginController@login')->name('UK.login.submit');
@@ -59,4 +59,3 @@ Route::resource('calendar', 'EventController');
 
 
 
-  
