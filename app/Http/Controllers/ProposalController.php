@@ -6,6 +6,7 @@ use App\Proposal;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProposalController extends Controller
 {
@@ -22,7 +23,6 @@ class ProposalController extends Controller
 
     public function index()
     {
-        
         $proposals = Proposal::all();
         return view('proposalPage.index',['proposals'=>$proposals,'layout'=>'index']);
 
@@ -82,7 +82,6 @@ class ProposalController extends Controller
      */
     public function show($id)
     {
-        
         // $proposal = Proposal::find($id);
         // $proposals = Proposal::all();
         // return view('proposalPage.show',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'show']);
@@ -93,8 +92,8 @@ class ProposalController extends Controller
     //             ->get();
         // $proposal1 = DB::select('select * from proposals where id = ?', [$id]);
         // $proposal2 = DB::select('select * from proposals2 where id = proposals2.id');
-        $proposal1 = DB::table('proposals')->get();
-        $proposal2 = DB::table('proposals2')->get();
+        $proposal1 = DB::table('proposals')->where('user_id', Auth::user()->id)->get();
+        $proposal2 = DB::table('proposals2')->where('user_id', Auth::user()->id)->get();
 
         return view('proposalPage.show',['proposal1'=>$proposal1, 'proposal2'=>$proposal2]);
     }
@@ -107,11 +106,11 @@ class ProposalController extends Controller
      */
     public function edit($id)
     {
-        
+
         $tests = Proposal::find($id);
         // $tests = Proposal::all();
         // $test = DB::table('proposals')
-                    
+
         //             ->get();
 
        //check correct user
