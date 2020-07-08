@@ -43,7 +43,7 @@
                             {{-- <i class="glyphicon glyphicon-edit"></i>  --}}
                             {{-- Edit </a> --}}
 
-                            <a href="{{action('UKController@edit',$event->id)}}" class="btn btn-success">Edit</a>
+                            <a href="{{action('UKController@edit',$event->event_id)}}" class="btn btn-success">Edit</a>
 
 
                         </th>

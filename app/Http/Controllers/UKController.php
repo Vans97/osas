@@ -93,7 +93,7 @@ class UKController extends Controller
      */
     public function show($id)
     {
-        $events = DB::table('events AS e')->select(DB::raw('e.title, e.color, e.driver, e.start_date, e.end_date, u.id, u.email'))
+        $events = DB::table('events AS e')->select(DB::raw('e.id as event_id, e.title, e.color, e.driver, e.start_date, e.end_date, u.id, u.email'))
             ->leftJoin('users AS u', 'e.user_id', '=', 'u.id')
             ->get();
 
