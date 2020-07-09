@@ -1,11 +1,12 @@
-@extends('layouts.app1')
+@extends('layouts.student')
 
 @section('content')
 
-   <a href="/home" class="btn btn-secondary btn-sm">Back</a>
+  
   <div class="container">
-    <div class="show" style="margin-top: 5%;">
+    <div class="show" style="margin-top: 5%; margin-left:2%">
    @foreach($proposal1 as $proposals1)
+   <br>
     <h1>{{$proposals1->title}}</h1>
 
         
@@ -40,10 +41,10 @@
                               <td>
                                   @if(!Auth::guest())
                                     @if(Auth::user()->id == $proposals1->user_id)
-                                  <a href="/proposalPage/{{$proposals1->id}}/edit" class= "btn btn-sm btn-warning">Edit</a>
+                                  <a href="/proposalPage/{{$proposals1->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
                                   {!!Form::open(['action' => ['ProposalController@destroy', $proposals1->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                       {{Form::hidden('_method', 'DELETE')}}
-                                      {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                      {{Form::submit('Delete', ['class' => 'btn btn-small bg-gradient-danger' ])}}
                                   {!!Form::close()!!}
                                   @endif
                                   @endif
@@ -57,7 +58,7 @@
   </div>
 
 <div class="container">
-<div class="profile" style="margin-top: 5%;">
+<div class="profile" style="margin-top: 5%; margin-left: 2%">
 
 @foreach($proposal2 as $proposals2)
 
@@ -93,10 +94,10 @@
                               <td>
                                   @if(!Auth::guest())
                                     @if(Auth::user()->id == $proposals2->user_id)
-                                  <a href="/proposal2Page/{{$proposals2->id}}/edit" class= "btn btn-sm btn-warning">Edit</a>
+                                  <a href="/proposal2Page/{{$proposals2->id}}/edit" class="btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
                                   {!!Form::open(['action' => ['Proposal2Controller@destroy', $proposals2->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                       {{Form::hidden('_method', 'DELETE')}}
-                                      {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                      {{Form::submit('Delete', ['class' => 'btn btn-small bg-gradient-danger'])}}
                                   {!!Form::close()!!}
                                   @endif
                                   @endif

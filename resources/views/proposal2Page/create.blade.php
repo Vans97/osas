@@ -1,10 +1,17 @@
-@extends('layouts.app1')
+@extends('layouts.student')
 
 @section('content')
 
-<div class="container">
-    <div class="jumbotron" style="margin-top: 5%;">
-    <h1>SUMMARY OF STUDENT ACTIVITY APPLICATION</h1>
+<div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">SUMMARY OF STUDENT ACTIVITY APPLICATION</h3>
+          </div>
+    
       
         {{-- {!! Form::open(['action' => 'ProposalController@store', 'method'=>'POST']) !!}
             <div class="form-group">
@@ -45,7 +52,7 @@
         <form method="POST" action="{{action('Proposal2Controller@store')}}">
             {{csrf_field()}}
             {{-- <input type="hidden" name="_method" value="PUT">  --}}
-
+            <div class="card-body">
             <label for="">Date Approved</label>
             <input type="date" class="form-control" name="date_approved"  placeholder="Enter the title"/><br/>
 
@@ -86,8 +93,13 @@
             <input type="double" class="form-control" name="cost" placeholder="Enter the name"/><br/>
 
             <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
+            </div>
         </form>
-    </div>
+    
+
+</div>
+</div>
+</div>
 </div>
 
 @endsection

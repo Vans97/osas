@@ -8,18 +8,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body> --}}
-    @extends('layouts.app1')
+    @extends('layouts.student')
 
 @section('content')
-    <div class="container">
-        <div class="jumbroton">
-
+    <div class="container" style="margin-top: 5%">
+        
             <table class="table table-striped table-bordered table-hover ">
-                <thead class="thead">
+                <thead class="thead-dark">
+                    
                     <tr class="warning">
                         {{-- <th>ID</th> --}}
-                        <th>Name</th>
-                        <th>Color</th>
+                        <th>Student Name</th>
+                        <th>Event Name</th>
+                        
                         <th>Driver</th>
                         <th>Start Date</th>
                         <th>End Date</th>
@@ -29,10 +30,12 @@
                 </thead>
                 @foreach($events as $event)
                 <tbody>
+                    <div class="jumbroton">
                     <tr>
                         {{-- <td>{{ $event->id}}</td> --}}
+                        <td>{{ $event->user->name}}</td>
                         <td>{{ $event->title}}</td>
-                        <td>{{ $event->color}}</td>
+                       
                         <td>{{ $event->driver}}</td>
                         <td>{{ $event->start_date}}</td>
                         <td>{{ $event->end_date}}</td>
@@ -43,7 +46,7 @@
                             {{-- Edit </a> --}}
                             @if(!Auth::guest())
                              @if(Auth::user()->id == $event->user_id)
-                             <a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success">Edit</a>
+                             <a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
                             @endif
                             @endif
 
@@ -56,20 +59,21 @@
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="DELETE"/>
                                 <button type="submit" class="btn btn-danger">
-                                    <i class="glyphicon glyphicon-delete">Delete</i>
+                                    <i class="glyphicon glyphicon-delete"><i class="fa fa-trash"></i></i>
                                 </button>
                             </form>
                             @endif
                             @endif
                         </th>
                     </tr>
+                    </div>
                 </tbody>
                 @endforeach
             </table>
         
 
 
-        </div>
+       
     </div>
     @endsection
 {{-- </body> --}}

@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.student')
 
 @section('content')
 <div class="container">
@@ -13,7 +13,7 @@
                     <table class="table table-striped">
                         <tr>
                             <th>Title</th>
-                            <th>Edit</th>
+                            
                             <th></th>
                         </tr>
                         @foreach($proposals as $proposal)
@@ -21,13 +21,14 @@
                             <td> <h3><a href="/proposalPage/{{$proposal->id}}"> {{$proposal->title}}</a></h3>
                                     <small>Applied on {{$proposal->created_at}} by {{$proposal->user->name}}</small> 
                             </td>
-                            <td><a href="/proposalPage/{{$proposal->id}}/edit" class="btn btn-primary">Edit</a></td>
+                            
                             <th></th>
                         </tr>
                         @endforeach
                     </table>
 
                     @else
+
                     <p>You have no proposal</p>
                     @endif
                    

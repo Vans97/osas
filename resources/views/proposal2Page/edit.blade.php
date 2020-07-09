@@ -1,12 +1,20 @@
-@extends('layouts.app1')
+@extends('layouts.student')
 
 @section('content')
 
-<div class="container">
-    <div class="jumbotron" style="margin-top: 5%;">
-     <h1>Edit Proposal</h1>
+<div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">SUMMARY OF STUDENT ACTIVITY APPLICATION</h3>
+          </div>
+     
       
         {!! Form::open(['action' => ['Proposal2Controller@update',$test->id], 'method'=>'POST']) !!}
+        <div class="card-body">
             <div class="form-group">
                 {{Form::label('date_approved','Date Approved')}}
                 {{Form::text('date_approved',$test->date_approved,['class'=>'form-control','placeholder'=>'Date Approved'])}}
@@ -44,10 +52,12 @@
 
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+        </div>
         {!! Form::close() !!}
 
     </div>
 </div>
-
+</div>
+</div>
 @endsection
 

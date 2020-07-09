@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 {{-- <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,23 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body> --}}
-    @extends('layouts.app1')
+    @extends('layouts.uk')
 
 @section('content')
 
+<div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Update Event</h3>
+          </div>
+
     <form action="{{action('UKController@update',$id)}}" method="POST">
         {{ csrf_field() }}
-        <div class="container">
-            <div class="jumbotron" style="margin-top: 5%;">
-                <h1> Update your Event </h1>
+        <div class="card-body">
                 <hr>
                     <input type="hidden" name="_method" value="UPDATE"/>
 
@@ -56,6 +64,10 @@
         </div>
     </div>
     </form>
+      </div>
+    </div>
+</div>
+
            
     @endsection
 {{-- </body> --}}

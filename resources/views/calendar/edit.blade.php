@@ -8,14 +8,23 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body> --}}
-    @extends('layouts.app1')
+    @extends('layouts.student')
 
 @section('content')
 
+<div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Edit Event</h3>
+          </div>
+
     <form action="{{action('EventController@update',$id)}}" method="POST">
         {{ csrf_field() }}
-        <div class="container">
-            <div class="jumbotron" style="margin-top: 5%;">
+        <div class="card-body">
                 <h1> Update your Event </h1>
                 <hr>
                     <input type="hidden" name="_method" value="UPDATE"/>
@@ -49,8 +58,12 @@
             <button type="submit" name="submit" class="btn btn-success">Update Event</button>
 
         </div>
-    </div>
+    
     </form>
+      </div>
+    </div>
+</div>
+</div>
            
     @endsection
 {{-- </body> --}}

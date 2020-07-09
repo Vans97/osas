@@ -8,42 +8,46 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body> --}}
-    @extends('layouts.app1')
+    @extends('layouts.uk')
 
 @section('content')
     <div class="container">
         <div class="jumbroton">
 
             <table class="table table-striped table-bordered table-hover ">
-                <thead class="thead">
+                <thead class="thead-dark">
+                    
                     <tr class="warning">
                         {{-- <th>ID</th> --}}
-                        <th>Name</th>
-                        <th>Color</th>
+                        {{-- <th>Student Name</th> --}}
+                        <th>Student Name</th>
+                        <th>Event Name</th>
                         <th>Driver</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Update</th>
                         <th>Delete</th>
-                        <th>Send message</th>
+                        <th>Send Email</th>
                     </tr>
                 </thead>
-                @foreach ($events as $event)
+                @foreach($events as $event)
                 <tbody>
+                    <div class="jumbroton">
                     <tr>
                         {{-- <td>{{ $event->id}}</td> --}}
-                        <td>{{ $event->title }}</td>
-                        <td>{{ $event->color }}</td>
-                        <td>{{ $event->driver }}</td>
-                        <td>{{ $event->start_date }}</td>
-                        <td>{{ $event->end_date }}</td>
+                        {{-- <td>{{ $event->user->name}}</td> --}}
+                        <td>{{ $event->name}}</td>
+                        <td>{{ $event->title}}</td>
+                        <td>{{ $event->driver}}</td>
+                        <td>{{ $event->start_date}}</td>
+                        <td>{{ $event->end_date}}</td>
 
                         <th>
                             {{-- <a href="{{action('EventController@edit',$event['id'])}}" class="btn btn-success"> --}}
                             {{-- <i class="glyphicon glyphicon-edit"></i>  --}}
                             {{-- Edit </a> --}}
 
-                            <a href="{{action('UKController@edit',$event->event_id)}}" class="btn btn-success">Edit</a>
+                            <a href="{{action('UKController@edit',$event->event_id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
 
 
                         </th>
@@ -54,7 +58,7 @@
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="DELETE"/>
                                 <button type="submit" class="btn btn-danger">
-                                    <i class="glyphicon glyphicon-delete">Delete</i>
+                                    <i class="fa fa-trash"></i>
                                 </button>
                             </form>
 
@@ -63,7 +67,7 @@
                         <th>
 
                             {{-- <a href="{{ action('MailSend@mailsend', [$event->email]) }}" class="btn btn-success">Send Email</a> --}}
-                            <a href="/send-mail/{{ $event->email }}/{{ $event->driver }}/{{ $event->start_date }}" class="btn btn-success">Send Email</a>
+                            <a href="/send-mail/{{ $event->email }}/{{ $event->driver }}/{{ $event->start_date }}" class="btn btn-success"><span class="fas fa-envelope"></span></a>
 
                         </th>
                     </tr>

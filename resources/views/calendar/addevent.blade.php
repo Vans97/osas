@@ -8,25 +8,25 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body> --}}
-@extends('layouts.app1')
+@extends('layouts.student')
 
 @section('content')
     
-<div class ="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background: #2e6da4; color:white;">
-                    Add Event To Calendar
-                </div>
+      <!-- left column -->
+      <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Add Event</h3>
+          </div>
 
-                <div class="panel-body">
-
-                    <h1>Task: Add Data</h1>
+                    
                     <form method="POST" action="{{action('EventController@store')}}">
                         {{csrf_field()}}
                         {{-- <input type="hidden" name="_method" value="PUT">  --}}
-
+                        <div class="card-body">
                         <label for="">Enter Name of Event</label>
                         <input type="text" class="form-control" name="title"  placeholder="Enter the name"/><br/>
 
@@ -69,12 +69,12 @@
                         
                         {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
                     {!! Form::close() !!} --}}
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+          </div>
+      </div>
 @endsection
 
 {{-- 

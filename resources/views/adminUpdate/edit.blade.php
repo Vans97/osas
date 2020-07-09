@@ -1,11 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="jumbotron" style="margin-top: 5%;">
-    <h1>Edit Proposal</h1>
+<div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">FORM OF VEHICLE AND PLACE USE</h3>
+          </div>
       
         {!! Form::open(['action' => ['AdminController@update',$proposal->id], 'method'=>'POST']) !!}
+
+        <div class="form-group">
             <div class="form-group">
                 {{Form::label('title','Title')}}
                 {{Form::text('title',$proposal->title,['class'=>'form-control','readonly'])}}
@@ -38,6 +46,7 @@
             </div><br/>
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+        </div>
         {!! Form::close() !!}
 
         
@@ -67,6 +76,8 @@
 
             <input type="submit" name="submit" class="btn btn-primary" value="Add Event Data"/>
         </form> --}}
+    </div>
+</div>
     </div>
 </div>
 @endsection

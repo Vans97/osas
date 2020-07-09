@@ -1,16 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
-    <a href="/proposalPage" class="btn btn-default">Back</a>
+    
     <div class="container">
-      <div class="show" style="margin-top: 5%;">
+      <div class="show" style="margin-top: 2%; margin-left:2%">
     @foreach($proposal1 as $proposals1)
+    <br>
     <h1>{{$proposals1->title}}</h1>
 
         
        
-        
+                <small> FORM OF VEHICLE AND PLACE USE</small>
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
@@ -57,12 +58,12 @@
       </div>
     </div>
     <div class="container">
-      <div class="show" style="margin-top: 5%;">
+<div class="profile" style="margin-top: 5%; margin-left: 2%">
 @foreach($proposal2 as $proposals2)
 
 
                     
-
+                      <small>SUMMARY OF STUDENT ACTIVITY APPLICATION</small>
                       <table class="table table-bordered">
                         <thead class="thead-dark">
                           <tr>
