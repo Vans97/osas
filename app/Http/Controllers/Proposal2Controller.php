@@ -60,6 +60,7 @@ class Proposal2Controller extends Controller
         $proposal2->no_participant = $request->input('no_participant');
         $proposal2->cost = $request->input('cost');
         $proposal2->user_id =auth()->user()->id;
+        $proposal2->proposal_id = $request->input('proposalId');
         $proposal2->save();
         // return redirect('/proposalPage')->with('success', 'Proposal Created');
         return redirect('/home')->with('success', 'Proposal Created');
@@ -87,7 +88,7 @@ class Proposal2Controller extends Controller
         $test = Proposal2::find($id);
     //     $test = Proposal::all();
     //     // $test = DB::table('proposals')
-                    
+
     //     //             ->get();
 
     //    //check correct user

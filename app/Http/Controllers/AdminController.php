@@ -36,9 +36,8 @@ class AdminController extends Controller
         // $proposal = Proposal::find($id);
         // $proposals = Proposal::all();
         // return view('adminUpdate.show',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'show']);
-      
-       $proposal1 = DB::table('proposals')->get();
-       $proposal2 = DB::table('proposals2')->get();
+       $proposal1 = DB::table('proposals')->where('id', $id)->get();
+       $proposal2 = DB::table('proposals2')->where('proposal_id', $id)->get();
 
        return view('adminUpdate.show',['proposal1'=>$proposal1, 'proposal2'=>$proposal2]);
 
@@ -49,7 +48,7 @@ class AdminController extends Controller
         $proposal = Proposal::find($id);
         $proposals = Proposal::all();
 
-        
+
         return view('adminUpdate.edit',['proposals'=>$proposals,'proposal'=>$proposal, 'layout'=>'edit']);
     }
 

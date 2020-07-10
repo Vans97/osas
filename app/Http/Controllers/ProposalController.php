@@ -68,10 +68,13 @@ class ProposalController extends Controller
         $proposal->name = $request->input('name');
         $proposal->status = $request->input('status');
         $proposal->user_id =auth()->user()->id;
+        // $proposalId = $proposal->id;
         $proposal->save();
+
+        $proposalId = $proposal->id;
         // return redirect('/proposalPage')->with('success', 'Proposal Created');
         //return redirect('/home')->with('success', 'Proposal Created');
-        return view('proposal2Page.create');
+        return view('proposal2Page.create', compact('proposalId'));
     }
 
     /**
@@ -92,8 +95,8 @@ class ProposalController extends Controller
     //             ->get();
         // $proposal1 = DB::select('select * from proposals where id = ?', [$id]);
         // $proposal2 = DB::select('select * from proposals2 where id = proposals2.id');
-        $proposal1 = DB::table('proposals')->where('user_id', Auth::user()->id)->get();
-        $proposal2 = DB::table('proposals2')->where('user_id', Auth::user()->id)->get();
+        $proposal1 = DB::table('proposals')->where('id', $id)->get();
+        $proposal2 = DB::table('proposals2')->where('proposal_id', $id)->get();
 
         return view('proposalPage.show',['proposal1'=>$proposal1, 'proposal2'=>$proposal2]);
     }

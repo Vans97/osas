@@ -10,7 +10,7 @@
           <div class="card-header">
             <h3 class="card-title">FORM OF VEHICLE AND PLACE USE</h3>
           </div>
-      
+
         {!! Form::open(['action' => ['AdminController@update',$proposal->id], 'method'=>'POST']) !!}
 
         <div class="form-group">
@@ -49,13 +49,13 @@
         </div>
         {!! Form::close() !!}
 
-        
+
             {{-- <form action="{{action('AdminController@update',$proposal->id)}}" method="POST">
             {{ csrf_field() }}
-            <input type="hidden" name="_method" value="PUT"> 
+            <input type="hidden" name="_method" value="PUT">
             <label for="">Title</label>
             <input type="text" class="form-control" name="title" value="{{$proposal->title}}" readonly /><br/>
-            
+
             <label for="">Activity Place</label>
             <input type="text" class="form-control" name="actPlace" value="{{$proposal->actPlace}}" readonly /><br/>
 

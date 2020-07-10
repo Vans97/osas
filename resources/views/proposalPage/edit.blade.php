@@ -11,7 +11,7 @@
           <div class="card-header">
             <h3 class="card-title">FORM OF VEHICLE AND PLACE USE</h3>
           </div>
-      
+
         {!! Form::open(['action' => ['ProposalController@update',$tests->id], 'method'=>'POST']) !!}
         <div class="card-body">
             <div class="form-group">
@@ -46,7 +46,7 @@
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
         </div>
-        
+
         {!! Form::close() !!}
         </div>
 

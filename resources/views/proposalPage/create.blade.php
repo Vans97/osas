@@ -6,7 +6,7 @@
     {{-- <div class="jumbotron" style="margin-top: 5%;"> --}}
     {{-- <h1>BORANG PENGESAHAN PENGGUNAAN TEMPAT DAN KENDERAAN</h1> --}}
     {{-- <h1>FORM OF VEHICLE AND PLACE USE</h1> --}}
-      
+
         {{-- {!! Form::open(['action' => 'ProposalController@store', 'method'=>'POST']) !!}
             <div class="form-group">
                 {{Form::label('title','Title')}}
@@ -39,9 +39,9 @@
                 {{-- {{Form::text('status','',['class'=>'form-control','placeholder'=>'Pending', 'value'=>'pending'])}}
 
             </div>
-            
+
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
-        {!! Form::close() !!} --}} 
+        {!! Form::close() !!} --}}
 
         {{-- <form method="POST" action="{{action('ProposalController@store')}}"> --}}
             {{-- {{csrf_field()}} --}}
@@ -88,7 +88,7 @@
                 <label for="">Title</label>
                 <input type="text" class="form-control" name="title"  placeholder="Enter the title"/>
               </div>
-              
+
               <div class="form-group">
                 <label for="">Activity Place</label>
                 <input type="text" class="form-control" name="actPlace" placeholder="Enter activity place"/>
@@ -124,7 +124,7 @@
 </div>
 
 
-            
+
 
 @endsection
 

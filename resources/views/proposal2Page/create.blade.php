@@ -11,8 +11,8 @@
           <div class="card-header">
             <h3 class="card-title">SUMMARY OF STUDENT ACTIVITY APPLICATION</h3>
           </div>
-    
-      
+
+
         {{-- {!! Form::open(['action' => 'ProposalController@store', 'method'=>'POST']) !!}
             <div class="form-group">
                 {{Form::label('title','Title')}}
@@ -45,9 +45,9 @@
                 {{-- {{Form::text('status','',['class'=>'form-control','placeholder'=>'Pending', 'value'=>'pending'])}}
 
             </div>
-            
+
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
-        {!! Form::close() !!} --}} 
+        {!! Form::close() !!} --}}
 
         <form method="POST" action="{{action('Proposal2Controller@store')}}">
             {{csrf_field()}}
@@ -83,6 +83,8 @@
             <label for="">Organize By</label>
             <input type="text" class="form-control" name="organize" placeholder="Enter the remarks"/><br/>
 
+            <input type="hidden" class="form-control" name="proposalId" value="{{ $proposalId }}"/><br/>
+
             <label for="">Date</label>
             <input type="date" class="form-control" name="date" placeholder="Enter the name"/><br/>
 
@@ -95,7 +97,7 @@
             <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
             </div>
         </form>
-    
+
 
 </div>
 </div>

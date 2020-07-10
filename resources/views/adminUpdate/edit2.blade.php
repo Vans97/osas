@@ -11,8 +11,8 @@
           <div class="card-header">
             <h3 class="card-title">SUMMARY OF STUDENT ACTIVITY APPLICATION</h3>
           </div>
-     
-      
+
+
         {!! Form::open(['action' => ['AdminController@update2',$test->id], 'method'=>'POST']) !!}
         <div class="card-body">
             <div class="form-group">
