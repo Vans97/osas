@@ -25,9 +25,7 @@ class EventController extends Controller
             $event[]=\Calendar::event(
                 $row->title,
                 
-                //tanpa time
-                //true,
-                //ada time
+               
                 false,
                 new \DateTime($row->start_date),
                 new \DateTime($row->end_date),
@@ -35,15 +33,8 @@ class EventController extends Controller
                 [
                     'color'=>$row->color,
                     
-                    
-                    // 'url' => 'http://full-calendar.io',
-                    //any other full-calendar supported parameters
-                    
                 ]
                 );
-
-                // $calendar = \Calendar::addEvents($event)
-                
 
         }
         $calendar =\Calendar::addEvents($event)
